@@ -11,6 +11,8 @@ public class TorpedoStore {
 
   // rate of failing to fire torpedos [0.0, 1.0]
   private double FAILURE_RATE = 0.0; //NOSONAR
+
+  // generate only once, and reuse as intended
   Random generator = new Random();
   private int torpedoCount = 0;
 
@@ -40,7 +42,7 @@ public class TorpedoStore {
     double r = generator.nextDouble();
 
     if (r >= FAILURE_RATE) {
-      // successful firing
+      // successful firing, fixed syntax error
       this.torpedoCount -= numberOfTorpedos;
       success = true;
     } else {
